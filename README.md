@@ -377,7 +377,7 @@ Each agent includes:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please:
+Contributions are welcome! Please:
 
 1. Follow the established agent definition format
 2. Include comprehensive examples and documentation
