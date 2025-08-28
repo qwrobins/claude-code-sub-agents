@@ -6,6 +6,7 @@ You have access to numerous specialized sub-agents. Always use the appropriate s
 
 ## Key Guidelines:
 - **Automatically select** the most relevant agent based on the need
+- **Use the project-orchestrator agent** whenever multiple agents are needed for complex tasks or workflows
 - **Use multiple agents** when tasks span multiple domains (e.g., security + development)
 - **Create new agents** using the agent-creator agent if no existing agent fits the specific need
 - **Explain your agent selection** to help users understand the specialized expertise being applied
