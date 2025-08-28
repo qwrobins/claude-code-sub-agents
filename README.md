@@ -108,7 +108,7 @@ This repository contains a comprehensive set of Claude Code sub-agents designed 
 ### Complete Automation
 - **End-to-end development**: From requirements to production deployment
 - **Intelligent orchestration**: Agents automatically coordinate and sequence work
-- **Dynamic specialization**: Create new agents for unique project needs
+- **Dynamic specialization**: Use agent-creator to build custom agents for unique project needs
 - **Session continuity**: Maintain context across long development sessions
 
 ### Professional Quality
@@ -200,9 +200,10 @@ claude-code-sub-agents/
    find . -name "*.md" -not -path "./README.md" -not -path "./**/README.md" -exec cp {} .claude/agents/ \;
    ```
 
-3. **Copy the Claude.md configuration file** to your project root:
+3. **Copy and customize the Example-Claude.md file** to your project root as Claude.md:
    ```bash
-   cp Claude.md /path/to/your/project/Claude.md
+   cp Example-Claude.md /path/to/your/project/Claude.md
+   # Then edit Claude.md to add your specific project information
    ```
 
 4. **Verify installation**:
@@ -230,21 +231,21 @@ claude-code-sub-agents/
 
 ### Claude.md Configuration
 
-This repository includes a `Claude.md` file that teaches Claude Code when and how to automatically engage the appropriate agents based on your requests. This eliminates the need to explicitly mention agent names in most cases.
+This repository includes an `Example-Claude.md` template that you customize for your project. This file teaches Claude Code when and how to automatically engage the appropriate agents based on your requests, eliminating the need to explicitly mention agent names.
 
 **Key Benefits:**
-- **Automatic agent selection** based on context and keywords
-- **Proactive security reviews** when handling authentication or sensitive code
-- **Intelligent coordination** between multiple agents for complex tasks
-- **Technology-specific routing** to the right development specialists
+- **Automatic agent selection** based on context and task requirements
+- **Custom agent creation** using agent-creator when no existing agent fits the need
+- **Intelligent coordination** between multiple agents for complex workflows
+- **Project-specific optimization** with your custom project context
 
-**Example Automatic Behaviors:**
-- Mentioning "security" automatically engages `security-analyzer`
-- Requesting "code review" automatically uses `code-reviewer` + `security-analyzer` + `performance-optimizer`
-- Starting a new project automatically coordinates `project-orchestrator` → `requirements-analyst` → appropriate specialists
-- Working with Python files automatically engages `python-developer`
+**Agent Selection Process:**
+1. **Match existing agents** to the task requirements
+2. **Create new agents** using agent-creator if no suitable agent exists
+3. **Coordinate multiple agents** for complex multi-domain tasks
+4. **Explain selections** to provide transparency in the process
 
-**Setup:** Simply copy the `Claude.md` file to your project root directory alongside your `.claude/agents/` folder.
+**Setup:** Copy `Example-Claude.md` to your project root as `Claude.md` and customize it with your specific project information.
 
 ## 🔧 Recommended: Context7 MCP Server
 
@@ -456,7 +457,7 @@ For issues, questions, or suggestions:
 ## 🚀 Quick Start
 
 1. **Copy agents** to your project's `.claude/agents/` directory
-2. **Copy and rename Example-Claude.md** to your project root directory and rename to **Claude.md** and add your specific project context
+2. **Copy and customize Example-Claude.md** to your project root as **Claude.md** and add your specific project context
 3. **Start Claude Code** in your project
 4. **Say**: "Build a task management web application" (no need to mention specific agents!)
 5. **Watch** as Claude Code automatically selects and coordinates the right agents
