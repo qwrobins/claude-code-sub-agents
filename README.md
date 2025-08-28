@@ -98,6 +98,12 @@ This repository contains a comprehensive set of Claude Code sub-agents designed 
 
 ## 🚀 Key Features
 
+### Intelligent Agent Engagement
+- **Automatic agent selection**: Claude.md configuration enables context-aware agent engagement
+- **Proactive security reviews**: Automatic security analysis for authentication and sensitive code
+- **Smart coordination**: Multiple agents work together seamlessly based on task requirements
+- **Technology-specific routing**: Automatic selection of appropriate development specialists
+
 ### Complete Automation
 - **End-to-end development**: From requirements to production deployment
 - **Intelligent orchestration**: Agents automatically coordinate and sequence work
@@ -193,13 +199,21 @@ claude-code-sub-agents/
    find . -name "*.md" -not -path "./README.md" -not -path "./**/README.md" -exec cp {} .claude/agents/ \;
    ```
 
-3. **Verify installation**:
+3. **Copy the Claude.md configuration file** to your project root:
+   ```bash
+   cp Claude.md /path/to/your/project/Claude.md
+   ```
+
+4. **Verify installation**:
    ```bash
    ls .claude/agents/
    # Should show agent files directly (e.g., python-developer.md, project-orchestrator.md)
+
+   ls Claude.md
+   # Should show the Claude.md configuration file in your project root
    ```
 
-4. **Start using agents** in Claude Code:
+5. **Start using agents** in Claude Code:
    ```
    Use the project-orchestrator agent to build a complete web application
    ```
@@ -207,8 +221,29 @@ claude-code-sub-agents/
 ### Important Notes:
 - **Agent files must be placed directly in `.claude/agents/`**, not in subdirectories
 - **Only copy the `.md` files**, not the folder structure
+- **The `Claude.md` file should be in your project root** to enable automatic agent engagement
 - **Choose agents based on your project needs** - you don't need all 51 agents for every project
 - **Agent names in Claude Code** will match the filenames (e.g., `python-developer.md` becomes the `python-developer` agent)
+
+## 🤖 Automatic Agent Engagement
+
+### Claude.md Configuration
+
+This repository includes a `Claude.md` file that teaches Claude Code when and how to automatically engage the appropriate agents based on your requests. This eliminates the need to explicitly mention agent names in most cases.
+
+**Key Benefits:**
+- **Automatic agent selection** based on context and keywords
+- **Proactive security reviews** when handling authentication or sensitive code
+- **Intelligent coordination** between multiple agents for complex tasks
+- **Technology-specific routing** to the right development specialists
+
+**Example Automatic Behaviors:**
+- Mentioning "security" automatically engages `security-analyzer`
+- Requesting "code review" automatically uses `code-reviewer` + `security-analyzer` + `performance-optimizer`
+- Starting a new project automatically coordinates `project-orchestrator` → `requirements-analyst` → appropriate specialists
+- Working with Python files automatically engages `python-developer`
+
+**Setup:** Simply copy the `Claude.md` file to your project root directory alongside your `.claude/agents/` folder.
 
 ## 🔧 Recommended: Context7 MCP Server
 
@@ -260,38 +295,51 @@ For detailed setup instructions and configuration options, visit:
 
 ## 🎮 Usage Examples
 
-### Starting a New Web Application
+### Starting a New Web Application (Automatic Agent Engagement)
 ```
-"I want to build a task management web application with user authentication, real-time updates, and mobile responsiveness. Handle everything from requirements to deployment."
-```
-
-The **project-orchestrator** will:
-1. Use **requirements-analyst** to gather detailed requirements
-2. Coordinate **system-architect** and **data-architect** for design
-3. Manage implementation with development agents
-4. Handle testing, deployment, and documentation
-5. Provide training materials for end users
-
-### Code Quality Review
-```
-"Review my e-commerce checkout process for security vulnerabilities, performance issues, and code quality."
+"I want to build a task management web application with user authentication, real-time updates, and mobile responsiveness."
 ```
 
-Multiple agents coordinate:
-- **security-analyzer** checks for vulnerabilities
-- **performance-optimizer** identifies bottlenecks  
-- **code-reviewer** ensures best practices
+**Claude Code automatically engages:**
+- **project-orchestrator** (detects "build" + "application")
+- **requirements-analyst** (for detailed requirements gathering)
+- **system-architect** + **data-architect** (for comprehensive design)
+- **security-analyzer** (detects "authentication")
+- **nextjs-developer** (if React/Next.js is mentioned)
+- **test-suite-generator** (for comprehensive testing)
+- **deployment-ops-manager** (for production deployment)
+
+### Code Security Review (Automatic Detection)
+```
+"Review my e-commerce checkout process"
+```
+
+**Claude Code automatically engages:**
+- **security-analyzer** (detects "checkout" + financial context)
+- **code-reviewer** (for general code quality)
+- **performance-optimizer** (checkout processes are performance-critical)
+
+### Technology-Specific Development (Smart Routing)
+```
+"Help me optimize this Python API for better performance"
+```
+
+**Claude Code automatically engages:**
+- **python-developer** (detects "Python")
+- **performance-optimizer** (detects "optimize" + "performance")
+- **api-designer** (detects "API")
+- **security-analyzer** (APIs require security review)
 
 ### Long-term Project Management
 ```
 "Manage the development of our new customer portal over the next 6 months with regular stakeholder updates."
 ```
 
-The system provides:
-- Automated project planning and risk management
-- Regular progress tracking and reporting
-- Quality gates and testing coordination
-- Stakeholder communication management
+**Claude Code automatically engages:**
+- **project-orchestrator** (detects "manage" + "development")
+- **project-planner** (detects "6 months" timeline)
+- **stakeholder-communicator** (detects "stakeholder updates")
+- **risk-manager** (long-term projects need risk assessment)
 
 ## 🔧 Agent Workflow Patterns
 
@@ -407,8 +455,9 @@ For issues, questions, or suggestions:
 ## 🚀 Quick Start
 
 1. **Copy agents** to your project's `.claude/agents/` directory
-2. **Start Claude Code** in your project
-3. **Say**: "Use the project-orchestrator to build [your project description]"
-4. **Watch** as the system handles everything from requirements to deployment
+2. **Copy and rename Example-Claude.md** to your project root directory and rename to **Claude.md** and add your specific project context
+3. **Start Claude Code** in your project
+4. **Say**: "Build a task management web application" (no need to mention specific agents!)
+5. **Watch** as Claude Code automatically selects and coordinates the right agents
 
-**That's it!** The agents will coordinate automatically to deliver a complete, production-ready solution.
+**That's it!** With the Claude.md configuration, agents are engaged automatically based on your request context. No need to remember agent names or explicitly call them - just describe what you want to accomplish!
