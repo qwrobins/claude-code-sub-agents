@@ -197,7 +197,7 @@ claude-code-sub-agents/
    cp quality-assurance/code-reviewer.md .claude/agents/
 
    # Or copy all agents at once:
-   find . -name "*.md" -not -path "./README.md" -not -path "./**/README.md" -exec cp {} .claude/agents/ \;
+   find <path/to/this/repo> -name "*.md" -not -path "./README.md" -not -path "./**/README.md" -exec cp {} .claude/agents/ \;
    ```
 
 3. **Copy and customize the Example-Claude.md file** to your project root as Claude.md:
