@@ -2,7 +2,7 @@
 
 This category contains agents specialized in building high-quality, maintainable code across multiple programming languages and frameworks. Each agent includes comprehensive collaboration patterns with other agents to ensure seamless development workflows.
 
-## Agents in this Category (11 agents)
+## Agents in this Category (12 agents)
 
 ### nextjs-developer
 **Purpose**: Specialized Next.js application development
@@ -32,6 +32,13 @@ This category contains agents specialized in building high-quality, maintainable
 - Builds web applications using Django, Flask, FastAPI
 - Handles data processing, automation, and API development
 - Implements Python best practices and testing strategies
+
+### react-developer
+**Purpose**: React application development and component libraries
+- Expert in React ecosystem and modern React patterns
+- Builds single-page applications (SPAs) and component libraries
+- Implements state management, hooks, and performance optimization
+- Handles React testing, accessibility, and UI development
 
 ### golang-developer
 **Purpose**: Go application development and concurrent programming
@@ -100,6 +107,7 @@ These agents support the development lifecycle:
    - **golang-developer** for Go services and concurrent programming
    - **ruby-developer** for Ruby applications and scripting
    - **rails-developer** for Rails web applications
+   - **react-developer** for React applications and component libraries
    - **nextjs-developer** for Next.js web applications
 3. **kubernetes-developer** handles cloud-native application development and Kubernetes deployment
 4. **sql-developer** handles database programming and query optimization
@@ -119,7 +127,9 @@ All development agents collaborate with:
 
 ### Language-Specific Collaborations
 - **nodejs-developer** ↔ **nestjs-developer**: Node.js ecosystem and enterprise framework development
+- **nodejs-developer** ↔ **react-developer**: Full-stack JavaScript development and API integration
 - **nodejs-developer** ↔ **nextjs-developer**: Full-stack JavaScript development
+- **react-developer** ↔ **nextjs-developer**: React ecosystem and framework development
 - **nestjs-developer** ↔ **nextjs-developer**: Full-stack TypeScript applications
 - **ruby-developer** ↔ **rails-developer**: Ruby ecosystem development
 - **All language developers** ↔ **sql-developer**: Database integration

@@ -27,12 +27,13 @@ This repository contains a comprehensive set of Claude Code sub-agents designed 
 - **design-research-agent** - Researches current UI/UX trends and accessibility standards
 - **design-reviewer** - Reviews and validates system designs for quality
 
-### 3. Development (11 agents)
+### 3. Development (12 agents)
 **Purpose**: Handle all aspects of code development and implementation
 
 - **python-developer** - Expert Python development with frameworks and best practices
 - **nodejs-developer** - Node.js and JavaScript backend development specialist
 - **nestjs-developer** - NestJS framework development for enterprise-grade Node.js applications
+- **react-developer** - React application development and component libraries specialist
 - **nextjs-developer** - Next.js and React frontend development expert
 - **golang-developer** - Go language development and microservices specialist
 - **ruby-developer** - Ruby language development and scripting expert
@@ -158,7 +159,7 @@ The agents are now organized into logical categories for better discoverability 
 claude-code-sub-agents/
 ├── requirements-analysis/     # Business analysis and requirements gathering (4 agents)
 ├── design-architecture/       # System design and architecture (7 agents)
-├── development/              # Code development and implementation (11 agents)
+├── development/              # Code development and implementation (12 agents)
 ├── quality-assurance/        # Testing and quality control (4 agents)
 ├── security/                 # Security analysis and architecture (2 agents)
 ├── operations-deployment/    # DevOps, deployment, and infrastructure (8 agents)
@@ -171,7 +172,7 @@ claude-code-sub-agents/
 
 - **`requirements-analysis/`** (4 agents): Transform business needs into technical specifications
 - **`design-architecture/`** (7 agents): Create robust, scalable system designs and UI/UX research
-- **`development/`** (11 agents): Build high-quality, maintainable code across multiple languages and frameworks
+- **`development/`** (12 agents): Build high-quality, maintainable code across multiple languages and frameworks
 - **`quality-assurance/`** (4 agents): Ensure code quality and system reliability through comprehensive testing
 - **`security/`** (2 agents): Implement security measures and compliance frameworks
 - **`operations-deployment/`** (8 agents): Deploy, monitor, and maintain production systems
@@ -179,7 +180,7 @@ claude-code-sub-agents/
 - **`documentation-communication/`** (3 agents): Create documentation and facilitate communication
 - **`meta-management/`** (6 agents): Optimize Claude Code usage and manage system continuity
 
-**Total: 51 specialized agents with comprehensive collaboration patterns**
+**Total: 52 specialized agents with comprehensive collaboration patterns**
 
 ## 📋 Installation
 
@@ -222,7 +223,7 @@ claude-code-sub-agents/
 - **Agent files must be placed directly in `.claude/agents/`**, not in subdirectories
 - **Only copy the `.md` files**, not the folder structure
 - **The `Claude.md` file should be in your project root** to enable automatic agent engagement
-- **Choose agents based on your project needs** - you don't need all 51 agents for every project
+- **Choose agents based on your project needs** - you don't need all 52 agents for every project
 - **Agent names in Claude Code** will match the filenames (e.g., `python-developer.md` becomes the `python-developer` agent)
 
 ## 🤖 Automatic Agent Engagement

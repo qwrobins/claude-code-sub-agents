@@ -42,7 +42,8 @@ This document provides guidance on when and how to automatically engage the spec
 - "Python" → `python-developer`
 - "Node.js" or "JavaScript backend" → `nodejs-developer`
 - "NestJS" → `nestjs-developer`
-- "Next.js" or "React" → `nextjs-developer`
+- "React" (without Next.js) → `react-developer`
+- "Next.js" or "React with SSR" → `nextjs-developer`
 - "Go" or "Golang" → `golang-developer`
 - "Ruby" → `ruby-developer`
 - "Rails" → `rails-developer`
@@ -99,7 +100,7 @@ This document provides guidance on when and how to automatically engage the spec
 
 ### Based on File Extensions
 - `.py` files → `python-developer`
-- `.js`, `.ts` files → `nodejs-developer` or `nextjs-developer`
+- `.js`, `.ts` files → `nodejs-developer`, `react-developer`, or `nextjs-developer`
 - `.go` files → `golang-developer`
 - `.rb` files → `ruby-developer`
 - `.sql` files → `sql-developer`
@@ -107,7 +108,8 @@ This document provides guidance on when and how to automatically engage the spec
 - `.yml`, `.yaml` in `.github/workflows/` → `cicd-builder`
 
 ### Based on Project Structure
-- `package.json` with React → `nextjs-developer`
+- `package.json` with React (SPA/CRA) → `react-developer`
+- `package.json` with Next.js → `nextjs-developer`
 - `package.json` with NestJS → `nestjs-developer`
 - `requirements.txt` or `pyproject.toml` → `python-developer`
 - `go.mod` → `golang-developer`
