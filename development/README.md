@@ -2,7 +2,7 @@
 
 This category contains agents specialized in building high-quality, maintainable code across multiple programming languages and frameworks. Each agent includes comprehensive collaboration patterns with other agents to ensure seamless development workflows.
 
-## Agents in this Category (12 agents)
+## Agents in this Category (13 agents)
 
 ### nextjs-developer
 **Purpose**: Specialized Next.js application development
@@ -53,6 +53,13 @@ This category contains agents specialized in building high-quality, maintainable
 - Builds Ruby applications, scripts, and automation tools
 - Implements metaprogramming and DSL development
 - Handles Ruby gem development and ecosystem integration
+
+### serverless-developer
+**Purpose**: Serverless application development and event-driven architectures
+- Expert in serverless platforms and event-driven systems
+- Builds serverless APIs, functions, and background processing systems
+- Implements multi-cloud serverless solutions and optimization strategies
+- Handles serverless security, monitoring, and cost optimization
 
 ### rails-developer
 **Purpose**: Ruby on Rails web application development
@@ -109,6 +116,7 @@ These agents support the development lifecycle:
    - **rails-developer** for Rails web applications
    - **react-developer** for React applications and component libraries
    - **nextjs-developer** for Next.js web applications
+   - **serverless-developer** for serverless applications and event-driven architectures
 3. **kubernetes-developer** handles cloud-native application development and Kubernetes deployment
 4. **sql-developer** handles database programming and query optimization
 5. **dependency-manager** maintains project dependencies across languages
