@@ -2,7 +2,7 @@
 
 This category contains agents specialized in orchestrating complex projects and coordinating team efforts. These agents form the coordination backbone of the entire agent ecosystem, ensuring seamless project execution from inception to completion.
 
-## Agents in this Category (6 agents)
+## Agents in this Category (8 agents)
 
 ### project-orchestrator
 **Purpose**: Master coordinator for end-to-end project execution
@@ -46,15 +46,31 @@ This category contains agents specialized in orchestrating complex projects and 
 - Facilitates user training and support
 - Ensures smooth transition to new systems
 
+### scrum-master (BMAD Integration)
+**Purpose**: BMAD workflow coordination and story-driven development
+- Orchestrates BMAD development cycles using existing specialized agents
+- Creates development stories from epics with complete context
+- Manages story-driven development workflow and quality gates
+- Coordinates with specialized development agents for implementation
+
+### product-owner (BMAD Integration)
+**Purpose**: BMAD requirements management and business value validation
+- Manages document sharding from PRD and architecture into epics
+- Validates development stories against business requirements
+- Ensures product vision consistency and business value alignment
+- Coordinates with business stakeholders and development teams
+
 ## Usage Patterns
 
 These agents coordinate project execution:
-1. **project-orchestrator** provides overall coordination
+1. **project-orchestrator** provides overall coordination (supports both traditional and BMAD workflows)
 2. **project-planner** creates detailed plans
 3. **risk-manager** identifies and mitigates risks
 4. **stakeholder-communicator** manages communication
 5. **training-change-manager** handles adoption
 6. **project-template-manager** provides reusable patterns
+7. **scrum-master** orchestrates BMAD story-driven development cycles
+8. **product-owner** manages BMAD requirements and business value validation
 
 ## Comprehensive Collaboration Framework
 

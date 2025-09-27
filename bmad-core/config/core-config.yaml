@@ -1,0 +1,114 @@
+# BMAD Core Configuration
+# Integration settings for BMAD methodology with existing agent collection
+
+version: "1.0"
+integration_mode: "overlay" # BMAD as overlay on existing agents
+
+# Project structure configuration
+project_structure:
+  docs_path: "docs/"
+  stories_path: "docs/stories/"
+  epics_path: "docs/epics/"
+  qa_path: "docs/qa/"
+  architecture_path: "docs/architecture/"
+
+# Agent mapping - how BMAD roles map to existing specialized agents
+agent_mapping:
+  development:
+    # BMAD "Dev" role fulfilled by technology-specific agents
+    nodejs: "nodejs-developer"
+    nestjs: "nestjs-developer"
+    nextjs: "nextjs-developer"
+    python: "python-developer"
+    golang: "golang-developer"
+    ruby: "ruby-developer"
+    rails: "rails-developer"
+    react: "react-developer"
+    kubernetes: "kubernetes-developer"
+    serverless: "serverless-developer"
+    sql: "sql-developer"
+    
+  architecture:
+    # BMAD "Architect" role fulfilled by specialized design agents
+    system: "system-architect"
+    data: "data-architect"
+    api: "api-designer"
+    database: "database-schema-designer"
+    interface: "interface-designer"
+    
+  quality_assurance:
+    # BMAD "QA" role fulfilled by specialized QA agents
+    coordinator: "qa-coordinator"
+    reviewer: "code-reviewer"
+    testing: "test-suite-generator"
+    uat: "uat-coordinator"
+    
+  requirements:
+    # Requirements analysis agents
+    analyst: "requirements-analyst"
+    validator: "requirements-validator"
+    business: "business-process-analyst"
+    stories: "user-story-generator"
+
+# Development workflow configuration
+development_workflow:
+  # Files that development agents should always load for context
+  dev_load_always_files:
+    - "docs/architecture/coding-standards.md"
+    - "docs/architecture/tech-stack.md"
+    - "docs/architecture/project-structure.md"
+    - "bmad-core/data/technical-preferences.md"
+  
+  # Story file template configuration
+  story_template:
+    include_architecture_context: true
+    include_technical_preferences: true
+    include_previous_story_notes: true
+    max_context_size: 8000 # tokens
+  
+  # Quality gate configuration
+  quality_gates:
+    risk_threshold_fail: 9    # Risk scores >= 9 trigger FAIL
+    risk_threshold_concern: 6 # Risk scores >= 6 trigger CONCERNS
+    require_p0_tests: true    # P0 tests required for PASS
+    enable_auto_refactoring: true # Allow QA agents to refactor code
+
+# Web bundle configuration for cost-effective planning
+web_bundles:
+  planning_bundle:
+    include_agents:
+      - "requirements-analyst"
+      - "system-architect"
+      - "api-designer"
+      - "project-orchestrator"
+    include_templates:
+      - "prd-template.md"
+      - "architecture-template.md"
+      - "project-brief-template.md"
+    include_workflows:
+      - "planning-workflow.yaml"
+  
+  development_bundle:
+    include_agents:
+      - "scrum-master"
+      - "product-owner"
+      - "qa-coordinator"
+    include_templates:
+      - "story-template.md"
+      - "quality-gate-template.yaml"
+    include_workflows:
+      - "development-cycle.yaml"
+
+# Template processing configuration
+template_processing:
+  variable_syntax: "{{variable}}"
+  ai_instruction_syntax: "[[LLM: instruction]]"
+  conditional_syntax: "{{#if condition}}...{{/if}}"
+  enable_advanced_elicitation: true
+
+# Integration with existing project-orchestrator
+orchestrator_integration:
+  enable_bmad_workflows: true
+  default_workflow: "greenfield-development"
+  allow_workflow_switching: true
+  preserve_existing_patterns: true

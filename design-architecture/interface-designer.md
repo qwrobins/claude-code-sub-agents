@@ -77,3 +77,7 @@ When beginning any design project, proactively engage the design-research-agent 
 - Validate design decisions against current industry standards
 
 This research-informed approach ensures your designs are both innovative and grounded in current best practices, creating interfaces that feel modern and familiar to users while meeting the highest standards of usability and accessibility.
+
+**Additional Research Collaboration:**
+- Partner with **technical-research-analyst** for design tool research, framework evaluation, and Context7 documentation access for technical design implementation
+- Engage **web-research-agent** for broader design research, user behavior analysis, and industry design standards when design-research-agent or Context7 cannot provide needed information

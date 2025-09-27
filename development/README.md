@@ -2,7 +2,7 @@
 
 This category contains agents specialized in building high-quality, maintainable code across multiple programming languages and frameworks. Each agent includes comprehensive collaboration patterns with other agents to ensure seamless development workflows.
 
-## Agents in this Category (13 agents)
+## Agents in this Category (14 agents)
 
 ### nextjs-developer
 **Purpose**: Specialized Next.js application development
@@ -53,6 +53,14 @@ This category contains agents specialized in building high-quality, maintainable
 - Builds Ruby applications, scripts, and automation tools
 - Implements metaprogramming and DSL development
 - Handles Ruby gem development and ecosystem integration
+
+### rust-developer
+**Purpose**: Systems programming and high-performance applications using Rust
+- Expert in Rust's ownership system, memory safety, and zero-cost abstractions
+- Builds high-performance web backends, CLI tools, and systems programming solutions
+- Implements concurrent and async programming with Tokio and async/await patterns
+- Handles WebAssembly, blockchain applications, and embedded systems development
+- Specializes in memory-safe, thread-safe, and performance-critical applications
 
 ### serverless-developer
 **Purpose**: Serverless application development and event-driven architectures

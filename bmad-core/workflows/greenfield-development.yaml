@@ -1,0 +1,235 @@
+# Greenfield Development Workflow
+# Complete new project development using BMAD methodology with existing specialized agents
+
+name: "Greenfield Development Workflow"
+version: "1.0"
+description: "Complete workflow for new project development integrating BMAD methodology with existing specialized agents"
+
+# Workflow phases
+phases:
+  planning:
+    name: "Planning Phase"
+    description: "Requirements gathering, architecture design, and project setup"
+    environment: "web_ui_or_ide"
+    agents:
+      - "requirements-analyst"
+      - "business-process-analyst" 
+      - "system-architect"
+      - "data-architect"
+      - "api-designer"
+      - "project-orchestrator"
+    
+    steps:
+      - id: "requirements_analysis"
+        name: "Requirements Analysis"
+        agent: "requirements-analyst"
+        template: "prd-template.md"
+        outputs:
+          - "docs/prd.md"
+        validation:
+          - agent: "requirements-validator"
+            criteria: "completeness_and_clarity"
+      
+      - id: "architecture_design"
+        name: "System Architecture Design"
+        agent: "system-architect"
+        template: "architecture-template.md"
+        inputs:
+          - "docs/prd.md"
+        outputs:
+          - "docs/architecture.md"
+        collaboration:
+          - agent: "data-architect"
+            purpose: "data_model_design"
+          - agent: "api-designer"
+            purpose: "api_specification"
+      
+      - id: "design_review"
+        name: "Design Review and Validation"
+        agent: "design-reviewer"
+        inputs:
+          - "docs/prd.md"
+          - "docs/architecture.md"
+        outputs:
+          - "docs/design-review.md"
+      
+      - id: "document_sharding"
+        name: "Document Sharding for Development"
+        agent: "product-owner"
+        task: "shard-documents"
+        inputs:
+          - "docs/prd.md"
+          - "docs/architecture.md"
+        outputs:
+          - "docs/epics/"
+          - "docs/stories/"
+
+  development:
+    name: "Development Phase"
+    description: "Iterative development using story-driven approach"
+    environment: "ide"
+    agents:
+      - "scrum-master"
+      - "product-owner"
+      - "qa-coordinator"
+      - "code-reviewer"
+      - "test-suite-generator"
+      # Technology-specific agents selected dynamically
+    
+    cycle:
+      name: "Development Cycle"
+      repeatable: true
+      steps:
+        - id: "story_creation"
+          name: "Create Development Story"
+          agent: "scrum-master"
+          task: "create-story"
+          inputs:
+            - "docs/epics/{current_epic}.md"
+            - "docs/architecture.md"
+            - "previous_story_notes"
+          outputs:
+            - "docs/stories/{epic}.{story}.md"
+        
+        - id: "risk_assessment"
+          name: "Risk Assessment (Optional for High-Risk Stories)"
+          agent: "qa-coordinator"
+          task: "assess-risk"
+          condition: "high_risk_story"
+          inputs:
+            - "docs/stories/{epic}.{story}.md"
+          outputs:
+            - "docs/qa/assessments/{epic}.{story}-risk.md"
+        
+        - id: "story_validation"
+          name: "Story Validation"
+          agent: "product-owner"
+          task: "validate-story"
+          inputs:
+            - "docs/stories/{epic}.{story}.md"
+            - "docs/prd.md"
+            - "docs/architecture.md"
+          approval_required: true
+        
+        - id: "implementation"
+          name: "Story Implementation"
+          agent: "dynamic_development_agent" # Selected based on technology stack
+          inputs:
+            - "docs/stories/{epic}.{story}.md"
+            - "bmad-core/data/technical-preferences.md"
+            - "docs/architecture/coding-standards.md"
+          outputs:
+            - "implementation_code"
+            - "tests"
+            - "story_notes"
+        
+        - id: "quality_review"
+          name: "Quality Review and Testing"
+          agent: "qa-coordinator"
+          task: "quality-gate"
+          inputs:
+            - "docs/stories/{epic}.{story}.md"
+            - "implementation_code"
+            - "tests"
+          collaboration:
+            - agent: "code-reviewer"
+              purpose: "code_quality_assessment"
+            - agent: "test-suite-generator"
+              purpose: "test_coverage_validation"
+          outputs:
+            - "docs/qa/gates/{epic}.{story}.yaml"
+        
+        - id: "story_completion"
+          name: "Story Completion"
+          agent: "scrum-master"
+          task: "complete-story"
+          inputs:
+            - "docs/qa/gates/{epic}.{story}.yaml"
+            - "story_notes"
+          outputs:
+            - "updated_story_status"
+            - "next_story_preparation"
+
+  deployment:
+    name: "Deployment Phase"
+    description: "Production deployment and monitoring setup"
+    environment: "ide"
+    agents:
+      - "deployment-ops-manager"
+      - "aws-solutions-architect"
+      - "kubernetes-administrator"
+      - "cicd-builder"
+    
+    steps:
+      - id: "deployment_planning"
+        name: "Deployment Planning"
+        agent: "deployment-ops-manager"
+        inputs:
+          - "docs/architecture.md"
+        outputs:
+          - "docs/deployment-plan.md"
+      
+      - id: "infrastructure_setup"
+        name: "Infrastructure Setup"
+        agent: "aws-solutions-architect" # or appropriate cloud agent
+        inputs:
+          - "docs/deployment-plan.md"
+        outputs:
+          - "infrastructure_code"
+      
+      - id: "cicd_setup"
+        name: "CI/CD Pipeline Setup"
+        agent: "cicd-builder"
+        inputs:
+          - "docs/deployment-plan.md"
+        outputs:
+          - "cicd_configuration"
+
+# Agent selection rules
+agent_selection:
+  development_agent:
+    rules:
+      - if: "tech_stack.backend == 'nodejs'"
+        then: "nodejs-developer"
+      - if: "tech_stack.backend == 'nestjs'"
+        then: "nestjs-developer"
+      - if: "tech_stack.backend == 'python'"
+        then: "python-developer"
+      - if: "tech_stack.backend == 'golang'"
+        then: "golang-developer"
+      - if: "tech_stack.frontend == 'react'"
+        then: "react-developer"
+      - if: "tech_stack.frontend == 'nextjs'"
+        then: "nextjs-developer"
+      - default: "nodejs-developer"
+
+# Quality gates configuration
+quality_gates:
+  risk_assessment:
+    enabled: true
+    threshold_fail: 9
+    threshold_concern: 6
+  
+  test_coverage:
+    enabled: true
+    minimum_coverage: 80
+    require_p0_tests: true
+  
+  code_quality:
+    enabled: true
+    require_review: true
+    allow_auto_refactoring: true
+
+# Integration points with existing agents
+integration:
+  project_orchestrator:
+    role: "workflow_coordinator"
+    responsibilities:
+      - "agent_selection"
+      - "workflow_progression"
+      - "cross_phase_coordination"
+  
+  existing_agents:
+    preserve_specialization: true
+    enhance_with_context: true
+    enable_collaboration: true

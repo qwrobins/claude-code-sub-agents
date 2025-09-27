@@ -1,0 +1,248 @@
+# Quality Gate Assessment Template
+# Used by QA agents to record quality gate decisions for development stories
+
+story_id: "{{epic_name}}.{{story_name}}"
+assessment_date: "{{assessment_date}}"
+assessed_by: "{{qa_agent}}"
+collaborating_agents:
+  - "{{collaborating_agent_1}}"
+  - "{{collaborating_agent_2}}"
+
+# Quality gate decision: PASS, CONCERNS, FAIL, or WAIVED
+quality_gate_decision: "{{quality_gate_decision}}"
+
+# Detailed assessment results
+assessment_results:
+  
+  # Requirements traceability analysis
+  requirements_traceability:
+    status: "{{traceability_status}}" # PASS, CONCERNS, FAIL
+    coverage_percentage: {{coverage_percentage}}
+    mapped_requirements: {{mapped_requirements_count}}
+    total_requirements: {{total_requirements_count}}
+    missing_requirements:
+      {{#each missing_requirements}}
+      - requirement: "{{this.requirement}}"
+        severity: "{{this.severity}}" # LOW, MEDIUM, HIGH, CRITICAL
+        impact: "{{this.impact}}"
+      {{/each}}
+    
+  # Test coverage assessment
+  test_coverage:
+    status: "{{test_coverage_status}}" # PASS, CONCERNS, FAIL
+    unit_test_coverage: {{unit_test_coverage}}
+    integration_test_coverage: {{integration_test_coverage}}
+    e2e_test_coverage: {{e2e_test_coverage}}
+    overall_coverage: {{overall_coverage}}
+    p0_tests_complete: {{p0_tests_complete}} # true/false
+    p1_tests_complete: {{p1_tests_complete}} # true/false
+    test_quality_score: {{test_quality_score}} # 1-10
+    missing_tests:
+      {{#each missing_tests}}
+      - test_type: "{{this.type}}" # unit, integration, e2e
+        description: "{{this.description}}"
+        priority: "{{this.priority}}" # P0, P1, P2
+        impact: "{{this.impact}}"
+      {{/each}}
+    
+  # Code quality assessment
+  code_quality:
+    status: "{{code_quality_status}}" # PASS, CONCERNS, FAIL
+    maintainability_score: {{maintainability_score}} # 1-10
+    complexity_score: {{complexity_score}} # 1-10
+    readability_score: {{readability_score}} # 1-10
+    security_score: {{security_score}} # 1-10
+    performance_score: {{performance_score}} # 1-10
+    coding_standards_compliance: {{coding_standards_compliance}} # true/false
+    security_issues:
+      {{#each security_issues}}
+      - severity: "{{this.severity}}" # LOW, MEDIUM, HIGH, CRITICAL
+        category: "{{this.category}}"
+        description: "{{this.description}}"
+        location: "{{this.location}}"
+        recommendation: "{{this.recommendation}}"
+      {{/each}}
+    performance_concerns:
+      {{#each performance_concerns}}
+      - severity: "{{this.severity}}" # LOW, MEDIUM, HIGH, CRITICAL
+        category: "{{this.category}}"
+        description: "{{this.description}}"
+        impact: "{{this.impact}}"
+        recommendation: "{{this.recommendation}}"
+      {{/each}}
+    
+  # Architecture compliance assessment
+  architecture_compliance:
+    status: "{{architecture_compliance_status}}" # PASS, CONCERNS, FAIL
+    pattern_adherence: {{pattern_adherence}} # true/false
+    integration_compliance: {{integration_compliance}} # true/false
+    data_model_compliance: {{data_model_compliance}} # true/false
+    api_compliance: {{api_compliance}} # true/false
+    security_compliance: {{security_compliance}} # true/false
+    violations:
+      {{#each architecture_violations}}
+      - severity: "{{this.severity}}" # LOW, MEDIUM, HIGH, CRITICAL
+        category: "{{this.category}}"
+        description: "{{this.description}}"
+        recommendation: "{{this.recommendation}}"
+      {{/each}}
+    
+  # Risk validation assessment
+  risk_validation:
+    original_risk_score: {{original_risk_score}} # 1-9
+    current_risk_score: {{current_risk_score}} # 1-9
+    mitigated_risk_score: {{mitigated_risk_score}} # 1-9
+    mitigation_effectiveness: "{{mitigation_effectiveness}}" # LOW, MEDIUM, HIGH
+    risk_factors_addressed: {{risk_factors_addressed_count}}
+    total_risk_factors: {{total_risk_factors_count}}
+    remaining_risks:
+      {{#each remaining_risks}}
+      - category: "{{this.category}}"
+        description: "{{this.description}}"
+        score: {{this.score}} # 1-9
+        mitigation: "{{this.mitigation}}"
+      {{/each}}
+
+# Issues identified during assessment
+issues_identified:
+  {{#each issues}}
+  - id: "{{this.id}}"
+    severity: "{{this.severity}}" # LOW, MEDIUM, HIGH, CRITICAL
+    category: "{{this.category}}" # code_quality, testing, security, performance, architecture, requirements
+    title: "{{this.title}}"
+    description: "{{this.description}}"
+    location: "{{this.location}}"
+    impact: "{{this.impact}}"
+    recommendation: "{{this.recommendation}}"
+    assigned_to: "{{this.assigned_to}}"
+    status: "{{this.status}}" # OPEN, IN_PROGRESS, RESOLVED, WAIVED
+  {{/each}}
+
+# Improvements made during review
+improvements_made:
+  {{#each improvements}}
+  - category: "{{this.category}}"
+    description: "{{this.description}}"
+    impact: "{{this.impact}}"
+    files_affected: 
+      {{#each this.files}}
+      - "{{this}}"
+      {{/each}}
+    metrics_improved:
+      {{#each this.metrics}}
+      - metric: "{{this.metric}}"
+        before: "{{this.before}}"
+        after: "{{this.after}}"
+      {{/each}}
+  {{/each}}
+
+# Recommendations for future development
+recommendations:
+  {{#each recommendations}}
+  - category: "{{this.category}}"
+    priority: "{{this.priority}}" # LOW, MEDIUM, HIGH
+    description: "{{this.description}}"
+    rationale: "{{this.rationale}}"
+    implementation: "{{this.implementation}}"
+  {{/each}}
+
+# Actions required before story completion
+next_actions:
+  {{#each next_actions}}
+  - action: "{{this.action}}"
+    priority: "{{this.priority}}" # LOW, MEDIUM, HIGH, CRITICAL
+    assigned_to: "{{this.assigned_to}}"
+    due_date: "{{this.due_date}}"
+    description: "{{this.description}}"
+    blocking: {{this.blocking}} # true/false
+  {{/each}}
+
+# Quality gate criteria evaluation
+gate_criteria:
+  # PASS criteria evaluation
+  pass_criteria:
+    all_acceptance_criteria_met: {{all_acceptance_criteria_met}} # true/false
+    minimum_test_coverage_met: {{minimum_test_coverage_met}} # true/false
+    p0_tests_complete: {{p0_tests_complete}} # true/false
+    no_critical_security_issues: {{no_critical_security_issues}} # true/false
+    code_quality_standards_met: {{code_quality_standards_met}} # true/false
+    architecture_compliance_validated: {{architecture_compliance_validated}} # true/false
+    risk_mitigation_implemented: {{risk_mitigation_implemented}} # true/false
+  
+  # CONCERNS criteria evaluation
+  concerns_criteria:
+    minor_code_quality_issues: {{minor_code_quality_issues}} # true/false
+    test_coverage_slightly_below_target: {{test_coverage_slightly_below_target}} # true/false
+    non_critical_performance_concerns: {{non_critical_performance_concerns}} # true/false
+    minor_architectural_deviations: {{minor_architectural_deviations}} # true/false
+    p1_tests_missing: {{p1_tests_missing}} # true/false
+  
+  # FAIL criteria evaluation
+  fail_criteria:
+    critical_acceptance_criteria_not_met: {{critical_acceptance_criteria_not_met}} # true/false
+    security_vulnerabilities_present: {{security_vulnerabilities_present}} # true/false
+    p0_tests_missing_or_failing: {{p0_tests_missing_or_failing}} # true/false
+    major_architectural_violations: {{major_architectural_violations}} # true/false
+    high_risk_inadequately_mitigated: {{high_risk_inadequately_mitigated}} # true/false
+    code_quality_significantly_below_standards: {{code_quality_significantly_below_standards}} # true/false
+
+# Waiver information (if applicable)
+waiver:
+  {{#if waiver_applied}}
+  waiver_applied: true
+  waiver_reason: "{{waiver_reason}}"
+  business_justification: "{{business_justification}}"
+  approved_by: "{{waiver_approved_by}}"
+  approval_date: "{{waiver_approval_date}}"
+  expiry_date: "{{waiver_expiry_date}}"
+  conditions: 
+    {{#each waiver_conditions}}
+    - "{{this}}"
+    {{/each}}
+  mitigation_plan: "{{waiver_mitigation_plan}}"
+  {{else}}
+  waiver_applied: false
+  {{/if}}
+
+# Metrics and measurements
+metrics:
+  assessment_duration_minutes: {{assessment_duration}}
+  issues_found: {{total_issues_found}}
+  issues_resolved: {{issues_resolved}}
+  improvements_made: {{total_improvements_made}}
+  code_lines_reviewed: {{code_lines_reviewed}}
+  test_cases_reviewed: {{test_cases_reviewed}}
+  
+# Integration with development cycle
+development_cycle_integration:
+  story_ready_for_completion: {{story_ready_for_completion}} # true/false
+  next_story_preparation_notes: "{{next_story_preparation_notes}}"
+  lessons_learned: 
+    {{#each lessons_learned}}
+    - "{{this}}"
+    {{/each}}
+  patterns_to_follow:
+    {{#each patterns_to_follow}}
+    - "{{this}}"
+    {{/each}}
+  anti_patterns_to_avoid:
+    {{#each anti_patterns_to_avoid}}
+    - "{{this}}"
+    {{/each}}
+
+# Signature and approval
+assessment_signature:
+  qa_agent: "{{qa_agent_signature}}"
+  assessment_date: "{{final_assessment_date}}"
+  quality_gate_decision: "{{final_quality_gate_decision}}"
+  confidence_level: "{{confidence_level}}" # LOW, MEDIUM, HIGH
+  
+# Template metadata
+template_version: "1.0"
+bmad_integration: true
+compatible_agents:
+  - "qa-coordinator"
+  - "code-reviewer"
+  - "test-suite-generator"
+  - "security-analyzer"
+  - "performance-optimizer"
